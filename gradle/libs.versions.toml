@@ -1,5 +1,6 @@
 [versions]
 agp = "8.9.3"
+ksp = "2.1.21-2.0.1"
 kotlin = "2.1.21"
 android-compileSdk = "35"
 android-minSdk = "24"
@@ -30,7 +31,8 @@ kmpNativeCoroutines = "1.0.0-ALPHA-38"
 composeNavigation = "2.9.0"
 serialization = "1.7.3"
 coil = "3.2.0"
-sqldelight = "2.1.0"
+roomVer = "2.7.2"
+sqlLite = "2.5.2"
 mockk = "1.13.10"
 turbine = "1.1.0"
 truthVer = "1.4.4"
@@ -61,10 +63,10 @@ decompose-ext-compose = { group = "com.arkivanov.decompose", name = "extensions-
 decompose-ext-android = { group = "com.arkivanov.decompose", name = "extensions-compose-android", version.ref = "decomposeVer" }
 
 # Local DB
-sqldelight-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
-sqldelight-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
-sqldelight-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
-sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomVer" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVer" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVer" }
+sqllite-bundle = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlLite" }
 
 # Serialization
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
@@ -111,9 +113,10 @@ landscapist-animation = { module = "com.github.skydoves:landscapist-animation", 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+androidx-room = { id = "androidx.room", version.ref = "roomVer" }
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kmpNativeCoroutines = { id = "com.rickclephas.kmp.nativecoroutines", version.ref = "kmpNativeCoroutines" }
-sqlDelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
